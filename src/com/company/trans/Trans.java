@@ -1,4 +1,4 @@
-package com.company;
+package com.company.trans;
 
 public class Trans {
     public Integer q;

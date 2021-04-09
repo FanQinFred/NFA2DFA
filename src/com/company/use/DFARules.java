@@ -1,4 +1,4 @@
-package com.company;
+package com.company.use;
 
 /**
  * DFA状态转移规则集合

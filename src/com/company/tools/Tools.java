@@ -1,4 +1,6 @@
-package com.company;
+package com.company.tools;
+
+import com.company.state.State;
 
 import java.util.ArrayList;
 

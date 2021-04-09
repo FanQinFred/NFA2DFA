@@ -1,4 +1,4 @@
-package com.company;
+package com.company.tools;
 
 public class MyStack {
     private int[] array;

@@ -1,4 +1,6 @@
-package com.company;
+package com.company.state;
+
+import com.company.state.State;
 
 public class DTT {
     public State start;

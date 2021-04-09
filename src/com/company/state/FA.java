@@ -1,4 +1,8 @@
-package com.company;
+package com.company.state;
+
+import com.company.tools.MyStack;
+import com.company.tools.Tools;
+import com.company.trans.Trans;
 
 import java.util.ArrayList;
 import java.util.Arrays;

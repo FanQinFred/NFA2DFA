@@ -1,9 +1,12 @@
-package com.company;
+package com.company.use;
+
+import com.company.state.FA;
+import com.company.trans.Trans;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class NFA2DFA implements DFARules{
+public class NFA2DFA implements DFARules {
 
     FA fa=new FA();
 

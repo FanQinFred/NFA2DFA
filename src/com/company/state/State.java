@@ -1,4 +1,4 @@
-package com.company;
+package com.company.state;
 
 import java.util.ArrayList;
 
