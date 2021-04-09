@@ -5,11 +5,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class FA {
-    private static ArrayList<String> sigma;
-    private static ArrayList<Integer> Q;
-    private static int q0;
-    private static ArrayList<Integer> F;
-    private static ArrayList<Trans> delta;
+    public  ArrayList<String> sigma;
+    public  ArrayList<Integer> Q;
+    public  int q0;
+    public  ArrayList<Integer> F;
+    public  ArrayList<Trans> delta;
+
+    public  FA(){}
 
     public  FA(ArrayList<String> sigma,ArrayList<Integer> Q,int q0,ArrayList<Integer> F,ArrayList<Trans> delta){
         this.sigma=sigma;
@@ -19,7 +21,7 @@ public class FA {
         this.delta=delta;
     }
     // 求解 e-closure(q)
-    public static ArrayList<Integer> getEq(int q, String a){
+    public  ArrayList<Integer> getEq(int q, String a){
         // 暂时没有去重
         MyStack stack = new MyStack(100);
 
@@ -47,7 +49,7 @@ public class FA {
 //        return new ArrayList<Integer>(new HashSet<Integer>(result));
     }
 
-    public static ArrayList<Integer> getET(ArrayList<Integer> T){
+    public  ArrayList<Integer> getET(ArrayList<Integer> T){
         // 暂时没有去重  // 没使用栈
         // 使用栈来处理
         MyStack stack = new MyStack(100);
@@ -70,7 +72,7 @@ public class FA {
     }
 
     // 不包括自己 //result.add(q);
-    public static ArrayList<Integer> getMoveBase(int q, String a){
+    public  ArrayList<Integer> getMoveBase(int q, String a){
 
         ArrayList<Integer> result=new ArrayList<Integer>();
 //        result.add(q);
@@ -82,7 +84,7 @@ public class FA {
         return new ArrayList<Integer>(new HashSet<Integer>(result));
     }
 
-    public static ArrayList<Integer> getMoveTa(ArrayList<Integer> T,String a){
+    public  ArrayList<Integer> getMoveTa(ArrayList<Integer> T,String a){
         // 暂时没有去重
         ArrayList<Integer> result=new ArrayList<Integer>();
         for(int t:T){
@@ -91,7 +93,7 @@ public class FA {
         return new ArrayList<Integer>(new HashSet<Integer>(result));
     }
 
-    public static FA run() {
+    public  FA run() {
         int newStateID=0;
         ArrayList<DTT> DTTs=new ArrayList<DTT>();
         ArrayList<State> QT=new  ArrayList<State>();
@@ -105,14 +107,14 @@ public class FA {
 //                System.out.println("");
 
 
-        State initState = null;
+        int initState = q0;
         QT.add(state);
         while(Tools.unlabelQT(QT)!=-1){
             int index=Tools.unlabelQT(QT);
 //            System.out.println("index: "+index);
             State T = QT.get(index);
-            initState=new State(T.ids,true,newStateID++);
-            QT.set(index,initState);
+//            initState=new State(T.ids,true,newStateID++);
+            QT.set(index,new State(T.ids,true,newStateID++));
             for(String a:sigma){
                 ArrayList<Integer> U=new ArrayList<Integer>();
                 U=getET(getMoveTa(T.ids,a));
@@ -214,7 +216,8 @@ public class FA {
             QBrief.add(dtt.end.newID);
         }
         QBrief= new ArrayList<Integer>(new HashSet<Integer>(QBrief));
-        q0Brief=initState.newID;
+        q0Brief=initState;
+//        System.out.println("initState.newID: "+initState);
 
         for(DTT dtt:DTTs){
             for(Integer f:F){
@@ -239,7 +242,7 @@ public class FA {
         return new FA(sigmaBrief,QBrief,q0Brief,FBrief,deltaBrief);
     }
 
-    public static void print(){
+    public  void print(){
         for(Trans d:delta){
             System.out.println(d.q+"---"+d.a+"-->"+d.q1);
         }
