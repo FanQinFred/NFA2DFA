@@ -101,31 +101,31 @@ public class NFA2DFA implements DFARules {
         System.out.println("0--a-->"+a0);
 
         int a1= nfa2DFA.getNextState(0, 'b');
-        System.out.println("0--a-->"+a1);
+        System.out.println("0--b-->"+a1);
 
         int a2= nfa2DFA.getNextState(1, 'a');
         System.out.println("1--a-->"+a2);
 
         int a3= nfa2DFA.getNextState(1, 'b');
-        System.out.println("1--a-->"+a3);
+        System.out.println("1--b-->"+a3);
 
         int a4= nfa2DFA.getNextState(2, 'a');
         System.out.println("2--a-->"+a4);
 
         int a5= nfa2DFA.getNextState(2, 'b');
-        System.out.println("2--a-->"+a5);
+        System.out.println("2--b-->"+a5);
 
         int a6= nfa2DFA.getNextState(3, 'a');
         System.out.println("3--a-->"+a6);
 
         int a7= nfa2DFA.getNextState(3, 'b');
-        System.out.println("3--a-->"+a7);
+        System.out.println("3--b-->"+a7);
 
         int a8= nfa2DFA.getNextState(4, 'a');
         System.out.println("4--a-->"+a8);
 
         int a9= nfa2DFA.getNextState(4, 'b');
-        System.out.println("4--a-->"+a9);
+        System.out.println("4--b-->"+a9);
 
     }
 }
